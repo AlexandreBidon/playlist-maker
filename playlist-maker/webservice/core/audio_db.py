@@ -42,7 +42,7 @@ class AudioDB():
         """
         try:
             artist_albums = requests.get(
-                'https://theaudiodb.com/api/v1/json/2/album.php?i={}'.format(artist_id)).json()
+                'https://theaudiodb.com/api/v1/json/{api_key}/album.php?i={artist_id}'.format(api_key=self.api_key, artist_id=artist_id)).json()
         except Exception as e:
             raise e
         try:
@@ -66,7 +66,7 @@ class AudioDB():
         """
         try:
             album_tracks = requests.get(
-                'https://theaudiodb.com/api/v1/json/2/track.php?m={}'.format(album_id)).json()
+                'https://theaudiodb.com/api/v1/json/{api_key}/track.php?m={album_id}'.format(api_key=self.api_key, album_id=album_id)).json()
         except Exception as e:
             raise e
         try:
@@ -90,7 +90,7 @@ class AudioDB():
         """
         try:
             track_info = requests.get(
-                'https://theaudiodb.com/api/v1/json/2/track.php?h={}'.format(track_id)).json()
+                'https://theaudiodb.com/api/v1/json/{api_key}/track.php?h={track_id}'.format(api_key=self.api_key, track_id=track_id)).json()
         except Exception as e:
             raise e
         try:

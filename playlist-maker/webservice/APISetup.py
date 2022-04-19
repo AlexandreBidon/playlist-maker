@@ -21,3 +21,13 @@ class APISetup():
             song_id = song_endpoint().random_song_id(artist_name=artist_name)
             song = song_endpoint().song_id_to_json(song_id=song_id)
             return song
+
+        @self.app.get("/random-id/{artist_name}")
+        async def choose_random_song(artist_name: str):
+            song_id = song_endpoint().random_song_id(artist_name=artist_name)
+            return song_id
+
+        @self.app.get("/info/{song_id}")
+        async def song_info_from_id(song_id: str):
+            song = song_endpoint().song_id_to_json(song_id=song_id)
+            return song

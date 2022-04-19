@@ -4,6 +4,9 @@ import requests
 class LyricsOvh():
 
     def __init__(self):
+        """
+        Note : LyricsOvh doesn't feature a key system yet but it could be implemented in the future
+        """
         self.api_key = None
 
     def get_song_lyrics(self, artist_name: str, song_name: str):
