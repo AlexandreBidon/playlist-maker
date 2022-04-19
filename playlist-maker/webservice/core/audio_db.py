@@ -4,7 +4,10 @@ import requests
 class AudioDB():
 
     def __init__(self):
-        pass
+        """
+        We use the public api key 2. This key is used for testing only.
+        """
+        self.api_key = "2"
 
     def get_artist_id(self, artist_name: str):
         """
@@ -18,7 +21,7 @@ class AudioDB():
         """
         try:
             artist_info = requests.get(
-                'https://www.theaudiodb.com/api/v1/json/2/search.php?s={}'.format(artist_name)).json()
+                'https://www.theaudiodb.com/api/v1/json/{api_key}/search.php?s={artist_name}'.format(api_key=self.api_key, artist_name=artist_name)).json()
         except Exception as e:
             raise e
         try:
