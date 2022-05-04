@@ -61,3 +61,8 @@ flowchart TB
 You can test the webservice. To do so you have to run the file `__test_main__.py` in the webservice folder.
 
 TODO : Add a dummy AudioDB object and a dummy LyricsOVH object to test the endpoints. The dummy objects ensure that changes to API wouldn't influence the test.
+
+
+### TODO
+
+- Healthcheck endpoint : add a default endpoint that returns info on the status of the service

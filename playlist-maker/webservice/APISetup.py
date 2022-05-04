@@ -14,6 +14,9 @@ class APISetup():
 
         @self.app.get("/")
         async def api_status():
+            """
+            TODO : healthcheck endpoint
+            """
             pass
 
         @self.app.get("/random/{artist_name}")
