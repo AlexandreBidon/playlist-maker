@@ -81,7 +81,7 @@ class AudioDB():
             track_id = None
         return track_id
 
-    def get_song_info(self, track_id: str):
+    def get_song_info(self, track_id: str, engine=None):
         """
         Returns the info of a song
 
@@ -91,8 +91,11 @@ class AudioDB():
             Returns:
                     track_info (dict or None) : Return a dict with the info of the song or None if it was not found.
         """
+        # To test the method
+        if engine is None:
+            engine = requests
         try:
-            track_info = requests.get(
+            track_info = engine.get(
                 'https://theaudiodb.com/api/v1/json/{api_key}/track.php?h={track_id}'.format(api_key=self.api_key, track_id=track_id)).json()
         except Exception as e:
             raise e
