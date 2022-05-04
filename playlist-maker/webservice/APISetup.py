@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from core.song_endpoint import song_endpoint
 import logging
+import requests
 
 
 class APISetup():
@@ -15,9 +16,19 @@ class APISetup():
         @self.app.get("/")
         async def api_status():
             """
-            TODO : healthcheck endpoint
+            healthcheck endpoint
+
+            NOTE : This is not a good way to do it. 
+            If Rick Astley song are removed from the
+            API the healthcheck will return a 404 status code.
+            Sadly, the two API don't offer a standard healthcheck endpoint.
             """
-            pass
+            status = {}
+            status["lyricsovh_status"] = requests.get(
+                'https://api.lyrics.ovh/v1/rick astley/never gonna give you up').status_code
+            status["audiodb_status"] = requests.get(
+                'https://www.theaudiodb.com/api/v1/json/2/search.php?s=rick astley').status_code
+            return(status)
 
         @self.app.get("/random/{artist_name}")
         async def choose_random_song(artist_name: str):

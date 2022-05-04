@@ -20,6 +20,13 @@ The project relies on other webservice to work. AudioDB features an api key syst
 
 To run the API you have to run the file `__main__.py` in the web_service folder. You will have the address of the local server.
 
+The webservice offers the following endpoints:
+
+- HTTP GET on `/` : Healthcheck of AudioDB and LyricsOVH
+- HTTP GET on `/random/{artist_name}` : Returns the info of a random song from an artist
+- HTTP GET on `/random-id/{artist_name}` : Returns the id of a random song from an artist
+- HTTP GET on `/info/{song_id}` : Returns the info of a song
+
 You can use the file `info.log` to debug.
 
 To use the client you can run the file `__main__.y` in the client folder. Note : This main file is directly launching an demo playlist with a pre-created file. If you want to use your own file you can import the `MainClient` object situated in core. You can then use the `create_playlist` method to create your own playlist. The `create_playlist` method requires 3 arguments :
@@ -63,6 +70,3 @@ You can test the webservice. To do so you have to run the file `__test_main__.py
 TODO : Add a dummy AudioDB object and a dummy LyricsOVH object to test the endpoints. The dummy objects ensure that changes to API wouldn't influence the test.
 
 
-### TODO
-
-- Healthcheck endpoint : add a default endpoint that returns info on the status of the service
