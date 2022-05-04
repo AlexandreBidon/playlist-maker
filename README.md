@@ -40,6 +40,31 @@ The webservice uses two API to collect data on artists and songs. Those two API 
 
 - [LyricsOVH](https://lyrics.ovh/) : Provides lyrics associated to a song
   
+### Architecture
+
+```mermaid
+classDiagram
+      Animal <|-- Duck
+      Animal <|-- Fish
+      Animal <|-- Zebra
+      Animal : +int age
+      Animal : +String gender
+      Animal: +isMammal()
+      Animal: +mate()
+      class Duck{
+          +String beakColor
+          +swim()
+          +quack()
+      }
+      class Fish{
+          -int sizeInFeet
+          -canEat()
+      }
+      class Zebra{
+          +bool is_wild
+          +run()
+      }
+```
 
 ### Unit testing
 
