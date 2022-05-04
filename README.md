@@ -49,8 +49,10 @@ flowchart LR
     __main__ -- Creates an instance --> APISetup
     APISetup -- Creates the API --> FastAPI
     APISetup -- Instanciates --> SongEndpoints
-    SongEndpoints -- Calls --> id1(AudioDB API)
-    SongEndpoints -- Calls --> id2(LyricsOVH API) 
+    SongEndpoints -- Instanciates --> id1(AudioDB)
+    SongEndpoints -- Instanciates --> id2(LyricsOVH)
+    id1(AudioDB) -- Calls --> id3(AudioDB.com API)
+    id2(LyricsOVH) -- Calls --> id4(LyricsOVH.com API)
 ```
 
 ### Unit testing
