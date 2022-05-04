@@ -44,7 +44,7 @@ The webservice uses two API to collect data on artists and songs. Those two API 
 
 Architecture du webservice
 ```mermaid
-flowchart LR
+flowchart TB
 
     __main__ -- Creates an instance --> APISetup
     APISetup -- Creates the API --> FastAPI
