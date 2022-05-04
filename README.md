@@ -42,28 +42,14 @@ The webservice uses two API to collect data on artists and songs. Those two API 
   
 ### Architecture
 
+Architecture du webservice
 ```mermaid
-classDiagram
-      Animal <|-- Duck
-      Animal <|-- Fish
-      Animal <|-- Zebra
-      Animal : +int age
-      Animal : +String gender
-      Animal: +isMammal()
-      Animal: +mate()
-      class Duck{
-          +String beakColor
-          +swim()
-          +quack()
-      }
-      class Fish{
-          -int sizeInFeet
-          -canEat()
-      }
-      class Zebra{
-          +bool is_wild
-          +run()
-      }
+flowchart LR
+    __main__ -- Creates an instance --> APISetup
+    APISetup -- Creates the API --> FastAPI
+    APISetup -- Instanciates --> SongEndpoints
+    SongEndpoints -- Calls --> AudioDB API
+    SongEndpoints -- Calls --> LyricsOVH API 
 ```
 
 ### Unit testing
