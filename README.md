@@ -42,7 +42,7 @@ The webservice uses two API to collect data on artists and songs. Those two API 
   
 ### Architecture
 
-Architecture du webservice
+This is the main architecture :
 ```mermaid
 flowchart TB
 
@@ -58,3 +58,4 @@ flowchart TB
 
 ### Unit testing
 
+You can test the webservice. To do so you have to run the file `__test_main__.py` in the webservice folder.
