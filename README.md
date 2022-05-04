@@ -45,11 +45,12 @@ The webservice uses two API to collect data on artists and songs. Those two API 
 Architecture du webservice
 ```mermaid
 flowchart LR
+
     __main__ -- Creates an instance --> APISetup
     APISetup -- Creates the API --> FastAPI
     APISetup -- Instanciates --> SongEndpoints
-    SongEndpoints -- Calls --> AudioDB API
-    SongEndpoints -- Calls --> LyricsOVH API 
+    SongEndpoints -- Calls --> id1(AudioDB API)
+    SongEndpoints -- Calls --> id2(LyricsOVH API) 
 ```
 
 ### Unit testing
