@@ -10,7 +10,7 @@
 
 ## How to install
 ### Dependencies
-First, make sure to install the dependencies for the server using `pip install -r requirements.txt`. The file is located in the `webservice` folder.
+First, make sure to install the dependencies for the server using `pip install -r requirements.txt`. The first file is located in the `webservice` folder. The second one is located in the `client` folder. The requirements is split in two in order to be able to run the webservice on a computer and the client on another one.
 
 ### Config
 
@@ -34,10 +34,12 @@ To use the client you can run the file `__main__.y` in the client folder. Note :
             The size of the playlist to create
 ## How it works
 
-### Architecture
+The webservice uses two API to collect data on artists and songs. Those two API are :
 
-### Webservice
+- [AudioDB](https://www.theaudiodb.com/) : Big webservice featuring info on artists,albums and songs
 
-#### Unit testing
+- [LyricsOVH](https://lyrics.ovh/) : Provides lyrics associated to a song
+  
 
-### Client
+### Unit testing
+
