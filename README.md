@@ -48,6 +48,7 @@ flowchart TB
 
     __main__ -- Creates an instance --> APISetup
     APISetup -- Creates the API --> FastAPI
+    MainClient -- Communicates --> FastAPI
     APISetup -- Instanciates --> SongEndpoints
     SongEndpoints -- Instanciates --> id1(AudioDB)
     SongEndpoints -- Instanciates --> id2(LyricsOVH)
