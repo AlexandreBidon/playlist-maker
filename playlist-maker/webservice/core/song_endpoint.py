@@ -2,6 +2,7 @@ from matplotlib import artist
 from core.audio_db import AudioDB
 from core.lyrics_ovh import LyricsOvh
 import random
+import logging
 
 
 class song_endpoint():
@@ -12,7 +13,10 @@ class song_endpoint():
 
     def random_song_id(self, artist_name: str):
         """
+        Returns a random song from an artist
         """
+        logging.info(
+            "Choosing a random song for artist {}".format(artist_name))
         artist_id = self.audiodb.get_artist_id(artist_name=artist_name)
         album_id = self.audiodb.get_albums_id(artist_id=artist_id)
         song_id = []
@@ -21,9 +25,23 @@ class song_endpoint():
             for song in temp_album:
                 song_id.append(song)
         song = random.choice(song_id)
+        logging.info("Random song : the song {} was choosen".format(song))
         return song
 
     def song_id_to_json(self, song_id):
+        """"
+        Returns a JSON doc with info on a song
+
+        ----
+        Parameters
+            song_id : str
+            The id of the song
+
+        ----
+        Returns
+            doc
+            The doc containing all the info of the song
+        """
         song_info = self.audiodb.get_song_info(track_id=song_id)
         artist_name = song_info["strArtist"]
         song_name = song_info["strTrack"]

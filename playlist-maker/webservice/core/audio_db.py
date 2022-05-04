@@ -1,4 +1,5 @@
 import requests
+import logging
 
 
 class AudioDB():
@@ -26,6 +27,8 @@ class AudioDB():
             raise e
         try:
             artist_id = artist_info["artists"][0]["idArtist"]
+            logging.info("Found artist id : {} from artist : {}".format(
+                artist_id, artist_name))
         except:
             artist_id = None
         return artist_id

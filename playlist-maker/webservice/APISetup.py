@@ -18,6 +18,19 @@ class APISetup():
 
         @self.app.get("/random/{artist_name}")
         async def choose_random_song(artist_name: str):
+            """
+            Returns a JSON doc with the info of a random song from an artist
+
+            -----
+            Parameters:
+
+                artist_name : str
+                The name of the artist to choose
+            -----
+            Returns:
+                song : doc
+                The info of the choosen song. It contains the lyrics, the youtube url and the title of the song.
+            """
             song_id = song_endpoint().random_song_id(artist_name=artist_name)
             song = song_endpoint().song_id_to_json(song_id=song_id)
             return song
